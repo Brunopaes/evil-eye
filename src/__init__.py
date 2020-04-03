@@ -1,7 +1,7 @@
 __all__ = [
     'helpers',
     'models',
-    'training',
+    'fitting.py',
 ]
 
 from . import __all__

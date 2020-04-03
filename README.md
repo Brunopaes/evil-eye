@@ -65,15 +65,15 @@ Section aimed on clarifying some running issues.
 For running it, at the `~/src` directory just run:
 
 ```shell script
-python octo-template.py
+python fitting.py
 ``` 
 
 or, if importing it as a module, just run:
 ````python
-from octo-template import Template
+from fitting import training
 
 if __name__ == '__main__':
-    Template('args', 'kwargs').__call__()
+    training(100, 128)
 ````
 
 ---------------
