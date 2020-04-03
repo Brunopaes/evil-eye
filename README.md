@@ -1,37 +1,45 @@
-## automatic-octo-template
+# Grzmot GAN: Generative Adversarial Network
 
-Optimized for python 3.6
+<small>_Optimized for python 3.6_</small>
 
-This is a project template. Used in other repositories.
+This project aims in implementing a image GAN. Ideally will be used to learn 
+and generate artists/cartoonists painting styles.
 
 ----------------------
 
-### Dependencies
+## Dependencies
 
-For developers, python requirements could be find in the project's root. For installing the requirements, 
-in your ___venv___ or ___anaconda env___, just run the following command:
+For installing the requirements, in your ___venv___ or ___anaconda env___, 
+just run the following command:
 
-`pip install -r requirements.txt`
-
+```shell script
+pip install -r requirements.txt
+```
 ----------------
 
-### Project's Structure
+## Project's Structure
 
 ```bash 
 .
-└── automatic-octo-template
+└── grzmot-gan
     ├── data
-    │   └── settings.json
+    │   ├── generated_data
+    │   │   └── generated_data
+    │   │       └── 2020-04-02
+    │   │           ├── gan_generated_1.png
+    │   │           ├── ...
+    │   │           └── gan_generated_20.png
+    │   └── train_data
+    │       ├── img_0.jpg
+    │       ├── ...
+    │       └── img_128.jpg
     ├── docs
-    │   ├── reference_articles
-    │   ├── ...
     │   └── CREDITS
     ├── src
     │   ├── __init__.py
-    │   └── bot.py
+    │   └── settings.json
     ├── tests
     │   └── unittests
-    │       ├── data
     │       └── __init__.py
     ├── .gitignore
     ├── LICENSE
@@ -46,39 +54,26 @@ in your ___venv___ or ___anaconda env___, just run the following command:
 - __src:__ The scripts & source code dir.
 - __tests:__ The unittests dir.
 
------------------------
+----------------
 
-### Usage Notes
+## Usage Notes
 
-#### Running
+Section aimed on clarifying some running issues.
 
-For running it, on the `~/src` directory just run the follow command:
+### Running
 
-`python automatic_octo.py` 
+For running it, at the `~/src` directory just run:
 
-#### Notes
+```shell script
+python octo-template.py
+``` 
 
-- Just a few notes
+or, if importing it as a module, just run:
+````python
+from octo-template import Template
+
+if __name__ == '__main__':
+    Template('args', 'kwargs').__call__()
+````
 
 ---------------
-
-### Versioning
-
-This project is under development.
-
-#### Roadmap
-
-__It needed to:__
-
-- Develop the feature #0
-    - feature #0.1:
-        - Techniques:
-            - technique #0
-            - technique #1
-            - technique #2
-    - feature #0.2:
-        - technology #0
-
-- Develop the feature #1
-
---------------
