@@ -8,14 +8,13 @@ import numpy
 
 def training(epochs=1, batch_size=128):
     (X_train, y_train, X_test, y_test) = helpers.load_data()
-    batch_count = X_train.shape[0] / batch_size
 
     generator = models.create_generator()
     discriminator = models.create_discriminator()
     gan = models.create_gan(discriminator, generator)
 
     for e in range(1, epochs + 1):
-        for _ in tqdm(range(batch_size), desc="Epoch %d" % e):
+        for _ in tqdm(range(batch_size), desc="Epoch {}".format(e)):
             noise = numpy.random.normal(0, 1, [batch_size, 100])
 
             generated_images = generator.predict(noise)
