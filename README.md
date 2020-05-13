@@ -1,4 +1,4 @@
-# Grzmot GAN: Generative Adversarial Network
+# Evil Eye: Generative Adversarial Network
 
 <small>_Optimized for python 3.6_</small>
 
