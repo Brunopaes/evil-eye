@@ -7,6 +7,19 @@ import numpy
 
 
 def training(epochs=1, batch_size=128):
+    """This function fits a gan model.
+
+    Parameters
+    ----------
+    epochs : int, optional
+        Number of epochs (1 by default).
+    batch_size : int, optional
+        Number of steps by epoch (128 by default).
+
+    Returns
+    -------
+
+    """
     (X_train, y_train, X_test, y_test) = helpers.load_data()
 
     generator = models.create_generator()

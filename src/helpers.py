@@ -19,8 +19,8 @@ def load_data():
     """
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
     x_train = (x_train.astype(numpy.float32) - 127.5) / 127.5
-
     x_train = x_train.reshape(60000, 784)
+
     return x_train, y_train, x_test, y_test
 
 
