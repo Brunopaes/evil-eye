@@ -2,8 +2,7 @@
 
 <small>_Optimized for python 3.6_</small>
 
-This project aims in implementing a image GAN. Ideally will be used to learn 
-and generate artists/cartoonists painting styles.
+This project aims in implementing a image GAN. Ideally will be used to learn and generate artists/cartoonists painting styles or in generation of new unique landscapes/scenes.
 
 ----------------------
 
