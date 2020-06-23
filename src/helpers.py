@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from keras.preprocessing.image import img_to_array
+from keras.preprocessing.image import load_img
 from keras.optimizers import Adam
 from keras.datasets import mnist
 
@@ -10,7 +12,7 @@ import cv2
 import os
 
 
-def load_data():
+def load_mnist_data():
     """This function loads the mnist dataset.
 
     Returns
@@ -22,6 +24,24 @@ def load_data():
     x_train = x_train.reshape(60000, 784)
 
     return x_train, y_train, x_test, y_test
+
+
+def load_data(path):
+    """This function loads the mnist dataset.
+
+    Returns
+    -------
+
+    """
+    path_ = os.path.abspath(path)
+    x_train = []
+    for item in os.listdir(os.path.abspath(path_))[0:1]:
+        image = load_img(os.path.join(path_, item))
+        image = img_to_array(image)/255.0
+        x_train.append(image)
+    x_train = numpy.array(x_train)
+
+    return x_train, numpy.array([]), numpy.array([]), numpy.array([])
 
 
 def adam_optimizer():

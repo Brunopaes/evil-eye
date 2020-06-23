@@ -20,7 +20,7 @@ def training(epochs=1, batch_size=128):
     -------
 
     """
-    (X_train, y_train, X_test, y_test) = helpers.load_data()
+    (x_train, y_train, x_test, y_test) = helpers.load_data('../data/train_data')
 
     generator = models.create_generator()
     discriminator = models.create_discriminator()
@@ -32,8 +32,8 @@ def training(epochs=1, batch_size=128):
 
             generated_images = generator.predict(noise)
 
-            image_batch = X_train[
-                numpy.random.randint(low=0, high=X_train.shape[0],
+            image_batch = x_train[
+                numpy.random.randint(low=0, high=x_train.shape[0],
                                      size=batch_size)]
 
             x = numpy.concatenate([image_batch, generated_images])
@@ -56,4 +56,4 @@ def training(epochs=1, batch_size=128):
 
 
 if __name__ == '__main__':
-    training(400, 128)
+    training(400, 1)
