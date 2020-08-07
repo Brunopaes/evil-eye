@@ -1,5 +1,10 @@
 # Evil Eye: Generative Adversarial Network
 
+![GitHub language count](https://img.shields.io/github/languages/count/Brunopaes/grzmot-gan.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/Brunopaes/grzmot-gan.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/Brunopaes/grzmot-gan.svg)
+![GitHub](https://img.shields.io/github/license/Brunopaes/grzmot-gan.svg)
+
 <small>_Optimized for python 3.6_</small>
 
 This project aims in implementing a image GAN. Ideally will be used to learn 
