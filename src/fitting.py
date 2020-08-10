@@ -20,7 +20,8 @@ def training(epochs=1, batch_size=128):
     -------
 
     """
-    (x_train, y_train, x_test, y_test) = helpers.load_data('../data/train_data')
+    # (x_train, y_train, x_test, y_test) = helpers.load_data('../data/train_data')
+    (x_train, y_train, x_test, y_test) = helpers.load_mnist_data()
 
     generator = models.create_generator()
     discriminator = models.create_discriminator()
@@ -56,4 +57,4 @@ def training(epochs=1, batch_size=128):
 
 
 if __name__ == '__main__':
-    training(400, 1)
+    training(400, 128)
