@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from numba import jit, vectorize, cuda
 from tqdm import tqdm
 
 import helpers
@@ -6,6 +7,7 @@ import models
 import numpy
 
 
+@cuda.jit(nopython=True)
 def training(epochs=1, batch_size=128):
     """This function fits a gan model.
 
