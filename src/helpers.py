@@ -3,6 +3,7 @@ from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import load_img
 from keras.optimizers import Adam
 from keras.datasets import mnist
+from PIL import Image
 
 import matplotlib.pyplot as plt
 import datetime
@@ -159,3 +160,18 @@ def comparing(path):
                 print('{} == {}: {}'.format(file_1, file_2, True))
 
         file_list.pop(file_list.index(file_1))
+
+
+def setting_up_npy(train_file='train_data.npy', height=266, width=400,
+                   image_channels=3, images_dir='../data/train_data/images'):
+    training_data = []
+    for filename in os.listdir(images_dir):
+        path = os.path.join(images_dir, filename)
+        training_data.append(numpy.asarray(Image.open(path)))
+
+    training_data = \
+        numpy.reshape(
+            training_data, (-1, height, width, image_channels)
+        )
+    training_data = training_data / 127.5 - 1
+    numpy.save('../data/{}'.format(train_file), training_data)

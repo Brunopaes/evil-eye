@@ -20,7 +20,8 @@ def training(epochs=1, batch_size=128):
     -------
 
     """
-    (x_train, y_train, x_test, y_test) = helpers.load_data('../data/train_data')
+    (x_train, y_train, x_test, y_test) = helpers.load_mnist_data()
+    # x_train = numpy.load('../data/train_data.npy')
 
     generator = models.create_generator()
     discriminator = models.create_discriminator()
@@ -51,9 +52,9 @@ def training(epochs=1, batch_size=128):
 
             gan.train_on_batch(noise, y_gen)
 
-        if e == 1 or e % 20 == 0:
+        if e == 1 or e % 100 == 0:
             helpers.plot_generated_images(e, generator)
 
 
 if __name__ == '__main__':
-    training(400, 1)
+    training(400, 100)
