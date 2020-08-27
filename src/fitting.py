@@ -20,7 +20,8 @@ def training(epochs=1, batch_size=128):
     -------
 
     """
-    (x_train, y_train, x_test, y_test) = helpers.load_data('../data/train_data')
+
+    x_train = numpy.load('../data/train_data.npy')
 
     generator = models.create_generator()
     discriminator = models.create_discriminator()
