@@ -38,7 +38,7 @@ def load_data(path):
     x_train = []
     for item in os.listdir(os.path.abspath(path_))[0:1]:
         image = load_img(os.path.join(path_, item))
-        image = img_to_array(image)/255.0
+        image = img_to_array(image) / 255.0
         x_train.append(image)
     x_train = numpy.array(x_train)
 
@@ -82,7 +82,7 @@ def plot_generated_images(epoch, generator, examples=100, dim=(10, 10),
     plt.figure(figsize=fig_size)
 
     for i in range(generated_images.shape[0]):
-        plt.subplot(dim[0], dim[1], i+1)
+        plt.subplot(dim[0], dim[1], i + 1)
         plt.imshow(generated_images[i], interpolation='nearest')
         plt.axis('off')
 
