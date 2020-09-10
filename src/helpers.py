@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# from keras.preprocessing.image import img_to_array
-# from keras.preprocessing.image import load_img
-# from keras.optimizers import Adam
-# from keras.datasets import mnist
+from keras.preprocessing.image import img_to_array
+from keras.preprocessing.image import load_img
+from keras.optimizers import Adam
+from keras.datasets import mnist
 from PIL import Image
 
 import matplotlib.pyplot as plt
