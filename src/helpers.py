@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from keras.preprocessing.image import img_to_array
-from keras.preprocessing.image import load_img
-from keras.optimizers import Adam
-from keras.datasets import mnist
+# from keras.preprocessing.image import img_to_array
+# from keras.preprocessing.image import load_img
+# from keras.optimizers import Adam
+# from keras.datasets import mnist
 from PIL import Image
 
 import matplotlib.pyplot as plt
@@ -95,7 +95,7 @@ def plot_generated_images(epoch, generator, examples=100, dim=(10, 10),
     plt.savefig('{}/gan_generated_{}.png'.format(path, epoch))
 
 
-def resize(max_width, max_height, image_path, out_dir):
+def resize(max_width, max_height, image_path, out_dir, upscale=False):
     """This function resizes images into a directory.
 
     Parameters
@@ -118,25 +118,34 @@ def resize(max_width, max_height, image_path, out_dir):
     image_path = os.path.join(dir_path, image_path)
     images = os.listdir(image_path)
 
-    counter = 0
-    for im in images:
+    for counter, im in enumerate(images):
         image = cv2.imread(os.path.join(image_path, im))
         height = image.shape[0]
         width = image.shape[1]
 
-        if width > max_width:
-            ratio = max_width / width
-            new_height = int(ratio * height)
-            image = cv2.resize(image, (max_width, new_height))
+        if upscale:
+            if width < max_width:
+                ratio = max_width / width
+                new_height = int(ratio * height)
+                image = cv2.resize(image, (max_width, new_height))
 
-        if new_height > max_height:
-            ratio = max_height / new_height
-            new_width = int(ratio * max_width)
-            image = cv2.resize(image, (new_width, max_height))
+                if new_height < max_height:
+                    ratio = max_height / new_height
+                    new_width = int(ratio * max_width)
+                    image = cv2.resize(image, (new_width, max_height))
+        else:
+            if width > max_width:
+                ratio = max_width / width
+                new_height = int(ratio * height)
+                image = cv2.resize(image, (max_width, new_height))
+
+                if new_height > max_height:
+                    ratio = max_height / new_height
+                    new_width = int(ratio * max_width)
+                    image = cv2.resize(image, (new_width, max_height))
 
         out_path = os.path.join(out_dir, im)
         cv2.imwrite(out_path, image)
-        counter += 1
 
 
 def comparing(path):
